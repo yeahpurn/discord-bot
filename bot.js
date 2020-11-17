@@ -34,7 +34,10 @@ client.on('message', message => {
 
 	if (command === "ping") {
 		const timeTaken = Date.now() - message.createdTimestamp;
-		message.reply(`Pong! This message took ${timeTaken}ms.`);
+		message.reply('pang');
+	}
+	else if (command === "server") {
+		message.channel.send(`This server's name is: ${message.guild.name}`);
 	}
 });
 
@@ -42,7 +45,7 @@ client.on('message', message => {
 client.on('guildMemberAdd', member => {
   const channel = member.guild.channels.cache.find(ch => ch.name === 'member-log');
   if (!channel) return;
-  channel.send(`yo sup, ${member}`);
+  channel.send('yo sup');
 });
 
 
