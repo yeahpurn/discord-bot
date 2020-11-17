@@ -42,11 +42,11 @@ client.on('message', message => {
 	else if (command === "coldwar") {
 		message.channel.send(`That game is absolute garbage -woodfordreserve`);
 	}
-	else if (command === 'args-info') {
+	else if (command === 'purn') {
 		if (!args.length) {
-			return message.channel.send(`You didn't provide any arguments, ${message.author}!`);
+			return message.channel.send(`What?, ${message.author}!`);
 		}
-		message.channel.send(`Command name: ${command}\nArguments: ${args}`);
+		message.channel.send(`Analyzing: ${args}\nHell if I know...`);
 	}
 });
 
