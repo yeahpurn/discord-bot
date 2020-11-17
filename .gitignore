@@ -1,0 +1,6 @@
+.env
+gh-keys
+gh-keys.pub
+package.json
+package-lock-json
+/node_modules/*
