@@ -1,5 +1,5 @@
 'use strict';
-
+require('dotenv').config();
 /**
  * A ping pong bot, whenever you send "ping", it replies "pong".
  */
@@ -10,7 +10,7 @@ const Discord = require('discord.js');
 // Create an instance of a Discord client
 const client = new Discord.Client();
 
-const token = require('./config.json');
+const user_token = process.env.DISCORD_TOKEN;
 const prefix = "!";
 
 /**
@@ -49,4 +49,4 @@ client.on('guildMemberAdd', member => {
 });
 
 
-client.login(token);
+client.login(user_token);
