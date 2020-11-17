@@ -10,6 +10,9 @@ const Discord = require('discord.js');
 // Create an instance of a Discord client
 const client = new Discord.Client();
 
+const token = require('./config.json');
+
+
 /**
  * The ready event is vital, it means that only _after_ this will your bot start reacting to information
  * received from Discord
@@ -38,4 +41,4 @@ client.on('guildMemberAdd', member => {
 });
 
 
-client.login('Nzc4MDcxMTk2NzUxMTAxOTgy.X7MpRQ.4xNz85ySdhECXdrDpFuZ4NiOAbM');
+client.login(token);
