@@ -11,7 +11,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 const token = require('./config.json');
-
+const prefix = "!";
 
 /**
  * The ready event is vital, it means that only _after_ this will your bot start reacting to information
@@ -24,10 +24,18 @@ client.on('ready', () => {
 // Create an event listener for messages
 client.on('message', message => {
   // If the message is "ping"
-  if (message.content === 'ping') {
-    // Send "pong" to the same channel
-    message.channel.send('pong');
+  if (message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
+
+  const commandBody = message.content.slice(prefix.length);
+  const args = commandBody.split(' ');
+  const command = args.shift().toLowerCase();
+  
+  if (command === "ping") {
+    const timeTaken = Date.now() - message.createdTimestamp;
+    message.reply('Pong! This message took ${timeTaken}ms.');
   }
+
 });
 
 
